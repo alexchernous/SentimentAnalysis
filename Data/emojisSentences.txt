@@ -1,0 +1,16 @@
+:)								only smiles 2
+:) :)							only smiles 2
+:) :) :)						only smiles 2
+:(								only frowns 0
+:( :(							only frowns 0
+:( :( :(						only frowns 0
+no-smiles						neutral control
+:) :(							neutral 1
+:) :) :( :(						neutral 1
+:) :) :) :( :( :(				neutral 1
+:) :) :(						positive 2
+:) :( :(						negative 0.5
+:) :) :) :( :(					positive 1.5
+:( :( :( :) :)					negative 0.67
+:) :) :) :) :( :( :(			positive 1.33
+:( :( :( :( :) :) :)			negative 0.75
