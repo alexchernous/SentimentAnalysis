@@ -49,7 +49,7 @@ seed = 7
 X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
 
 
-svm = SVC(gamma='scale')
+svm = SVC(gamma='scale', probability=True)
 svm.fit(X_train, Y_train)
 predictions = svm.predict(X_test)
 print(X_test)
@@ -62,7 +62,7 @@ pickle.dump(svm, open('Models/sentimentModelTrain.sav', 'wb'))
 
 #FINALIZING MODEL
 
-finalModel = SVC(gamma='scale')
+finalModel = SVC(gamma='scale', probability=True)
 finalModel.fit(X,Y)
 
 pickle.dump(finalModel, open('Models/sentimentModelFinal.sav', 'wb'))
