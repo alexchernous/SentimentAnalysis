@@ -4,13 +4,12 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 
-def convertResults(sentimentPrediction):
-    if sentimentPrediction[0] == 1:
-        print('\nIt seems to me your sentiment is positive :)\n')
-    elif sentimentPrediction[0] == -1:
-        print('\nI think your sentiment is negative :(\n')
-    else:
-        print("\nHmm, either I can't tell or your sentiment is neutral\n")
+results = {
+    '-1.0': "\nI think your sentiment is negative :(\n",
+    '0.0': "\nHmm, either I can't tell or your sentiment is neutral\n",
+    '1.0': "\nIt seems to me your sentiment is positive :)\n"
+}
+
 
 # load the model from disk
 sentimentModel = pickle.load(open('Models/sentimentModelFinal.sav', 'rb'))
@@ -51,7 +50,8 @@ while(not stop):
     # give prob for each class
     print(sentimentModel.predict_proba(parameters))
 
-    convertResults(sentimentPrediction)
+    #look up in dictionary for appropriate response
+    print(results[str(sentimentPrediction[0])])
 
 
     _ = input("Would you like to keep going?\n--> ").lower()
